@@ -1,6 +1,7 @@
 name: "Test Action"
 on:
   pull_request_target:
+  pull_request:
 
 jobs:
   # test action works running from the graph
