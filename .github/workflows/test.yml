@@ -20,9 +20,9 @@ jobs:
           echo "$result"
       - name: Create Comment
         if: |
-          steps.is_organization_member.outputs.result == false
+          steps.is_organization_member.outputs.result == "false"
         run: echo User Does Not Belong to testorg
       - name: Create Comment 2
         if: |
-          steps.is_organization_member.outputs.result == true
+          steps.is_organization_member.outputs.result == "true"
         run: echo User Does Belong to testorg
