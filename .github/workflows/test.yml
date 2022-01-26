@@ -18,9 +18,12 @@ jobs:
         run: |
           result=${{steps.is_organization_member.outputs.result}}
           echo "$result"
-      - name: Create Comment
-        if: ${{ steps.is_organization_member.outputs.result == true }}
-        run: echo User Does Not Belong to testorg
+      - name: Fail if not member
+        run: |
+          result=${{ steps.is_organization_member.outputs.result }}
+          if [ $result == false ]; then
+              echo user is not part of org
+              exit 1
+          fi
       - name: Create Comment 2
-        if: ${{ steps.is_organization_member.outputs.result == true }}
-        run: echo User Does Belong to testorg
+        run: echo User Does Belong to cloudquery
