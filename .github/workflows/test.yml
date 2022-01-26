@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: yevgenypats/is-organization-member
+      - uses: yevgenypats/is-organization-member@78ce597bc916e3d0149e459575aaf6e4885dddc3
         id: is_organization_member
         with:
           organization: cloudquery
