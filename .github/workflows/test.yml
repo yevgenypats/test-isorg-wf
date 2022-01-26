@@ -22,7 +22,7 @@ jobs:
         if: |
           steps.is_organization_member.outputs.result == false
         run: echo User Does Not Belong to testorg
-      - name: Create Comment
+      - name: Create Comment 2
         if: |
           steps.is_organization_member.outputs.result == true
         run: echo User Does Belong to testorg
