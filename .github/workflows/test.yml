@@ -21,7 +21,7 @@ jobs:
       - name: Fail if not member
         run: |
           result=${{ steps.is_organization_member.outputs.result }}
-          if [ $result == false ]; then
+          if [ $result == true ]; then
               echo user is not part of org
               exit 1
           fi
