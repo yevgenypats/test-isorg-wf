@@ -14,6 +14,10 @@ jobs:
           organization: cloudquery
           username: ${{ github.event.pull_request.user.login }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Log Result
+        run: |
+          result=${{steps.is_organization_member.outputs.result}}
+          echo "$result"
       - name: Create Comment
         if: |
           steps.is_organization_member.outputs.result == false
