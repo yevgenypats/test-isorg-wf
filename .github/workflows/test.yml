@@ -1,0 +1,16 @@
+name: "Test Action"
+on:
+  pull_request_target:
+
+jobs:
+  # test action works running from the graph
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: yevgenypats/is-organization-member
+        id: is_organization_member
+        with:
+          organization: cloudquery
+          username: ${{ github.event.pull_request.user.login }}
+          token: ${{ secrets.GITHUB_TOKEN }}
