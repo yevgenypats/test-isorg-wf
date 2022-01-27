@@ -19,9 +19,9 @@ jobs:
           result=${{steps.is_organization_member.outputs.result}}
           echo "$result"
       - name: Fail if not member
-        if: steps.is_organization_member.outputs.result != true
+        if: ${{ steps.is_organization_member.outputs.result != 'true' }}
         run: |
           echo user is not part of org
       - name: Create Comment 2
-        if: steps.is_organization_member.outputs.result == true
+        if: ${{ steps.is_organization_member.outputs.result == 'true' }}
         run: echo User Does Belong to cloudquery
